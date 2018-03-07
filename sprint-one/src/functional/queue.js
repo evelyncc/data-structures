@@ -18,7 +18,7 @@ var Queue = function() {
   someInstance.dequeue = function() {
     if (currentIndex > 0) {
       storage[firstIndex] = someInstance[firstIndex];
-      delete someInstance[firstIndex]
+      delete someInstance[firstIndex];
       var popIndex = firstIndex;
       firstIndex++;
       return storage[popIndex];
