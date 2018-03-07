@@ -17,6 +17,7 @@ var Stack = function() {
     if (currentIndex > 0) {
       var popIndex = currentIndex - 1;
       storage[popIndex] = someInstance[popIndex];
+      delete someInstance[popIndex];
       currentIndex--;
       return storage[popIndex];
     }
