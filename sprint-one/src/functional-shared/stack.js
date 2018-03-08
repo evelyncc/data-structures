@@ -1,13 +1,14 @@
 var Stack = function() {
   // Hey! Rewrite in the new style. Your code will wind up looking very similar,
   // but try not not reference your old code in writing the new style.
-  var someInstance = {
+  var obj = {
+    someInstance: {},
     currentIndex: 0,
     storage : {}
   };
 
-  extend(someInstance, stackMethods);
-  return someInstance;
+  extend(obj, stackMethods);
+  return obj;
 };
 
 var extend = function(obj, methodsObj) {
@@ -19,15 +20,17 @@ var extend = function(obj, methodsObj) {
 
 var stackMethods = {
   push: function(value) {
-    this.storage[this.currentIndex] = value;
+    var pushIndex = this.currentIndex;
+    this.storage[pushIndex] = value;
     this.currentIndex++
-    return this.storage[this.currentIndex - 1];
+    return this.storage[pushIndex];
   },
   pop: function() {
     if (this.currentIndex > 0) {
     this.currentIndex--;
-    var popValue = this.storage[this.currentIndex];
-    delete this.storage[this.currentIndex];
+    var popIndex = this.currentIndex;
+    var popValue = this.storage[popIndex];
+    delete this.storage[popIndex];
     return popValue;
     }
   },
