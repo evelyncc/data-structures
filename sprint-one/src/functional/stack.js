@@ -10,15 +10,14 @@ var Stack = function() {
     storage[currentIndex] = value;
     var pushIndex = currentIndex;
     currentIndex++;
-    return storage[pushIndex];
+    return storage[currentIndex - 1];
   };
 
   someInstance.pop = function() {
     if (currentIndex > 0) {
-      var popIndex = currentIndex - 1;
-      var popValue = storage[popIndex];
-      delete storage[popIndex];
       currentIndex--;
+      var popValue = storage[currentIndex];
+      delete storage[popIndex];
       return popValue;
     }
   };
