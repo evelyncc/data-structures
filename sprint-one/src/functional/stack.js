@@ -17,7 +17,7 @@ var Stack = function() {
     if (currentIndex > 0) {
       currentIndex--;
       var popValue = storage[currentIndex];
-      delete storage[popIndex];
+      delete storage[currentIndex];
       return popValue;
     }
   };
