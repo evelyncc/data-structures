@@ -9,19 +9,18 @@ var Queue = function() {
   // Implement the methods below
 
   someInstance.enqueue = function(value) {
-    someInstance[currentIndex] = value;
+    storage[currentIndex] = value;
     var pushIndex = currentIndex;
     currentIndex++;
-    return someInstance[pushIndex];
+    return storage[pushIndex];
   };
 
   someInstance.dequeue = function() {
     if (currentIndex > 0) {
-      storage[firstIndex] = someInstance[firstIndex];
-      delete someInstance[firstIndex];
-      var popIndex = firstIndex;
+      var dequeueValue = storage[firstIndex];
+      delete storage[firstIndex];
       firstIndex++;
-      return storage[popIndex];
+      return dequeueValue;
     }
   };
 
