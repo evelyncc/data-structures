@@ -21,9 +21,8 @@ var extend = function(obj, methodsObj) {
 var queueMethods = {
   enqueue: function(value) {
     this.storage[this.currentIndex] = value;
-    var enqueueIndex = this.currentIndex;
     this.currentIndex++;
-    return this.storage[enqueueIndex];
+    return this.storage[enqueueIndex - 1];
   },
   dequeue: function() {
     if (this.currentIndex > this.firstIndex) {
