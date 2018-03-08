@@ -19,17 +19,15 @@ var extend = function(obj, methodsObj) {
 
 var stackMethods = {
   push: function(value) {
-    var pushIndex = this.currentIndex;
-    this.storage[pushIndex] = value;
+    this.storage[this.currentIndex] = value;
     this.currentIndex++
-    return this.storage[pushIndex];
+    return this.storage[this.currentIndex - 1];
   },
   pop: function() {
     if (this.currentIndex > 0) {
     this.currentIndex--;
-    var popIndex = this.currentIndex;
-    var popValue = this.storage[popIndex];
-    delete this.storage[popIndex];
+    var popValue = this.storage[this.currentIndex];
+    delete this.storage[this.currentIndex];
     return popValue;
     }
   },
