@@ -10,13 +10,13 @@ var Queue = function() {
 
   someInstance.enqueue = function(value) {
     storage[currentIndex] = value;
-    var pushIndex = currentIndex;
+    var enqueueIndex = currentIndex;
     currentIndex++;
-    return storage[pushIndex];
+    return storage[enqueueIndex];
   };
 
   someInstance.dequeue = function() {
-    if (currentIndex > 0) {
+    if (currentIndex > firstIndex) {
       var dequeueValue = storage[firstIndex];
       delete storage[firstIndex];
       firstIndex++;
