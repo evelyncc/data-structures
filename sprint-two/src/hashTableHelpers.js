@@ -15,14 +15,32 @@ var LimitedArray = function(limit) {
   var storage = [];
 
   var limitedArray = {};
-  limitedArray.get = function(index) {
+  limitedArray.get = function(index, key) {
     checkLimit(index);
-    return storage[index];
+    for (var i = 0; i < storage[index].length; i++){
+      if (key === storage[index][i][0]) {
+        return storage[index][i][1];
+      }
+    }
   };
-  limitedArray.set = function(index, value) {
+
+  limitedArray.set = function(index, value, key) {
     checkLimit(index);
-    storage[index] = value;
+    var exist = false;
+    if (!Array.isArray(storage[index])) {
+      storage[index] = [];
+    }
+    for (var i = 0; i < storage[index].length; i++) {
+      if (storage[index][i][0] === key) {
+        storage[index][i][1] = value;
+        exist = true;
+      }
+    }
+    if (!exist) {
+      storage[index].push([key, value]);
+    }
   };
+
   limitedArray.each = function(callback) {
     for (var i = 0; i < storage.length; i++) {
       callback(storage[i], i, storage);
@@ -56,4 +74,8 @@ var getIndexBelowMaxForKey = function(str, max) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+  get - O(1) in hash table context, O(n) as a function
+  set - O(1) in hash table context, O(n) as a function
+  each - O(n)
+  getIndexBelowMaxForKey - O(1) in hash table context, O(n) as a function
  */
