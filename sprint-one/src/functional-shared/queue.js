@@ -22,7 +22,7 @@ var queueMethods = {
   enqueue: function(value) {
     this.storage[this.currentIndex] = value;
     this.currentIndex++;
-    return this.storage[enqueueIndex - 1];
+    return this.storage[this.currentIndex - 1];
   },
   dequeue: function() {
     if (this.currentIndex > this.firstIndex) {
