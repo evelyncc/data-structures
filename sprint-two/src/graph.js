@@ -17,7 +17,7 @@ Graph.prototype.contains = function(node) {
       return true;
     }
   } else {
-     return false;
+    return false;
   }
 };
 
@@ -25,8 +25,8 @@ Graph.prototype.contains = function(node) {
 Graph.prototype.removeNode = function(node) {
   if (this.nodes[node].value === node) {
     if (this.nodes[node].edge) {
-    var removeEdge = this.nodes[node].edge.to
-    delete this.nodes[removeEdge].edge;
+      var removeEdge = this.nodes[node].edge.to;
+      delete this.nodes[removeEdge].edge;
     }
     delete this.nodes[node];
   } 
@@ -68,7 +68,7 @@ Graph.prototype.removeEdge = function(fromNode, toNode) {
 Graph.prototype.forEachNode = function(cb) {
   var nodeValues = [];
   for (var key in this.nodes) {
-    nodeValues.push(this.nodes[key].value)
+    nodeValues.push(this.nodes[key].value);
   }
   _.each(nodeValues, cb);
 };
