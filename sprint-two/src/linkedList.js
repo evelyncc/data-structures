@@ -15,10 +15,9 @@ var LinkedList = function() {
   };
 
   list.removeHead = function() {
-    var oldValue = list.head.value;
+    var oldHead = list.head;
     list.head = list.head.next;
-    delete list.oldValue;
-    return oldValue;
+    return oldHead.value;
   };
 
   list.contains = function(target) {
@@ -30,7 +29,7 @@ var LinkedList = function() {
         currentNode = currentNode.next;
       }
     }
-    return false
+    return false;
   };
 
   return list;
@@ -47,4 +46,7 @@ var Node = function(value) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+  addToTail - O(1)
+  removeHead - O(1)
+  contains - O(n)
  */
