@@ -41,7 +41,7 @@ describe('tree', function() {
     expect(tree.contains(8)).to.equal(true);
   });
   
-    it('should not overwrite values', function() {
+  it('should not overwrite values', function() {
     tree.addChild(5);
     tree.addChild(5);
     expect(tree.children.length).to.equal(2);
