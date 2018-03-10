@@ -69,7 +69,7 @@ describe('graph', function() {
     expect(graph.hasEdge(5, 5)).to.equal(true);
   });
 
-  it('should contain more than one edge', function() {
+  it('should be able to contain more than one edge', function() {
     graph.addNode(4);
     graph.addNode(5);
     graph.addNode(1);
